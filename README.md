@@ -1,7 +1,7 @@
 ## Features
 - CSS with SASS
 - Absolute Imports
-
+- Custom Fav Icon
 ### `yarn start`
 
 Runs the app in the development mode.\
