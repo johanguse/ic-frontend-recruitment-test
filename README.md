@@ -1,4 +1,5 @@
 ## Features
+- CRA with TypeScript
 - Eslint
 - Prettier
 - CSS with SASS
