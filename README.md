@@ -1,7 +1,10 @@
 ## Features
+- Eslint
+- Prettier
 - CSS with SASS
 - Absolute Imports
 - Custom Fav Icon
+- Custom Font "Open Sans"
 ### `yarn start`
 
 Runs the app in the development mode.\
