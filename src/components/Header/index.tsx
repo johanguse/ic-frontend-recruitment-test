@@ -5,7 +5,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="header"></header>
+      <header className="header">teste</header>
     </>
   );
 };
