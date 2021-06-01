@@ -11,7 +11,8 @@ $gutter-horizontal: 4rem;
 }
 
 html {
-   font-size: 10px
+  font-family: 'open_sansregular', sans-serif;
+  font-size: 14px
 }
 .container {
   max-width: $container-max-width;
