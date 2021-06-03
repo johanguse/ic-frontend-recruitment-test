@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Card from 'components/Card';
 import Header from 'components/Header';
 import { CarType } from 'models/car.interface';
-import { Cars } from 'api/api';
+import { CarsApi } from 'api/api';
 
 function App() {
   const [cars, setCars] = useState<CarType[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    Cars.getCars()
+    CarsApi.getCars()
       .then((data) => {
         setCars(data);
       })

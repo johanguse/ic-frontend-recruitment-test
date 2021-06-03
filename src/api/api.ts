@@ -13,6 +13,6 @@ const requests = {
   get: (url: string) => instance.get(url).then(responseBody),
 };
 
-export const Cars = {
+export const CarsApi = {
   getCars: (): Promise<CarType[]> => requests.get(''),
 };
