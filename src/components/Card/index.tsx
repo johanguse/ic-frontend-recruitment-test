@@ -6,7 +6,14 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ car }) => {
-  return <div className="card">{car.model}</div>;
+  return (
+    <>
+      <div className="card">
+        <p>{car.model}</p>
+        <p>{car.make}</p>
+      </div>
+    </>
+  );
 };
 
 export default Card;

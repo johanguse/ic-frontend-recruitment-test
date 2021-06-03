@@ -7,11 +7,12 @@ export interface CarType {
   km: number; // Car kilometers
   remainingTime: number; // Number of remaining milliseconds remaining in the auction.
   imageUrl: string; // Car Image url
-  bids?:
-  {
-    amount: number; // Integer representing bid amount
-    dealership: string; // String representing dealer that made the offer
-    createdAt: string; // ISODate representing the date of the request
-    channel: string; // Either ‘Web’ or ‘Mobile’
-  }; //: An array of the current bids in the car
+  bids?: BidsObject; //: An array of the current bids in the car
 }
+
+export interface BidsObject {
+  amount: number; // Integer representing bid amount
+  dealership: string; // String representing dealer that made the offer
+  createdAt: string; // ISODate representing the date of the request
+  channel: string; // Either ‘Web’ or ‘Mobile’
+};

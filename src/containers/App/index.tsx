@@ -24,7 +24,7 @@ function App() {
     <>
       <Header />
       <div className="app">
-        <div className="container">
+        <div className="container car-cards">
           {isError ? (
             <>
               <div className="isError">Erro!!!</div>
