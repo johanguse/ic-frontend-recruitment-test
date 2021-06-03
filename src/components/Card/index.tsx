@@ -1,7 +1,12 @@
 import React, { FC } from 'react';
+import { CarType } from 'models/car.interface';
 
-const Card = () => {
-  return <div className="card">teste</div>;
+interface CardProps {
+  car: CarType;
+}
+
+const Card: FC<CardProps> = ({ car }) => {
+  return <div className="card">{car.model}</div>;
 };
 
 export default Card;

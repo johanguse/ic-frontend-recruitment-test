@@ -1,24 +1,38 @@
+import React, { useEffect, useState } from 'react';
+import Card from 'components/Card';
 import Header from 'components/Header';
-import React from 'react';
+import { CarType } from 'models/car.interface';
+import { Cars } from 'api/api';
 
 function App() {
+  const [cars, setCars] = useState<CarType[]>([]);
+  const [isError, setIsError] = useState<boolean>(false);
+
+  useEffect(() => {
+    Cars.getCars()
+      .then((data) => {
+        setCars(data);
+      })
+      .catch((err) => {
+        setIsError(true);
+        console.log(err);
+      });
+    return () => undefined;
+  }, []);
+
   return (
     <>
       <Header />
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <div className="container">
+          {isError ? (
+            <>
+              <div className="isError">Erro!!!</div>
+            </>
+          ) : (
+            cars.map((car) => <Card key={car.id} car={car} />)
+          )}
+        </div>
       </div>
     </>
   );
