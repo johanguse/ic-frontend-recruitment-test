@@ -21,9 +21,6 @@ function msToReadableTime(time: number) {
 const Card: FC<CardProps> = ({ car }) => {
   const allBids = car.bids;
 
-  console.log(allBids);
-  console.log(msToReadableTime(car.remainingTime));
-
   const Completionist = () => <span>Leilão Encerrado</span>;
 
   const renderer = ({
@@ -46,7 +43,7 @@ const Card: FC<CardProps> = ({ car }) => {
 
   return (
     <>
-      <div className="col-1-of-3 card">
+      <div className="card">
         <p>{car.model}</p>
         <p>{car.make}</p>
         <Countdown
