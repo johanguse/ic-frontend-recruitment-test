@@ -1,3 +1,9 @@
+export interface BidsObject {
+  amount: number; // Integer representing bid amount
+  dealership: string; // String representing dealer that made the offer
+  createdAt: string; // ISODate representing the date of the request
+  channel: string; // Either ‘Web’ or ‘Mobile’
+};
 export interface CarType {
   id: string; // Unique identifier of the car.,
   make: string; // Make of the car
@@ -10,9 +16,3 @@ export interface CarType {
   bids?: BidsObject; //: An array of the current bids in the car
 }
 
-export interface BidsObject {
-  amount: number; // Integer representing bid amount
-  dealership: string; // String representing dealer that made the offer
-  createdAt: string; // ISODate representing the date of the request
-  channel: string; // Either ‘Web’ or ‘Mobile’
-};

@@ -1,29 +1,37 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import Countdown from 'react-countdown';
-import { CarType } from 'models/car.interface';
+import { CarType, BidsObject } from 'models/car.interface';
 
 interface CardProps {
   car: CarType;
 }
 
-function msToReadableTime(time: number) {
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-
-  const hours = Math.floor((time / hour) % 24);
-  const minutes = Math.floor((time / minute) % 60);
-  const seconds = Math.floor((time / second) % 60);
-
-  return `${hours}:${minutes}:${seconds}`;
-}
-
 const Card: FC<CardProps> = ({ car }) => {
-  const allBids = car.bids;
+  const allCarBid = car.bids;
+
+  function currentBid(allBids: string | any[] | BidsObject | undefined) {
+    if (!Array.isArray(allBids) || !allBids.length) {
+      return (
+        <>
+          <div>R$ 0</div>
+        </>
+      );
+    }
+    return (
+      <>
+        <div>
+          {allBids[allBids.length - 1].amount.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })}
+        </div>
+      </>
+    );
+  }
 
   const Completionist = () => <span>Leilão Encerrado</span>;
 
-  const renderer = ({
+  const rendererRemainingTime = ({
     hours,
     minutes,
     seconds,
@@ -49,8 +57,10 @@ const Card: FC<CardProps> = ({ car }) => {
         <Countdown
           date={Date.now() + car.remainingTime}
           zeroPadTime={2}
-          renderer={renderer}
+          renderer={rendererRemainingTime}
         />
+
+        <div>{currentBid(allCarBid)}</div>
       </div>
     </>
   );
