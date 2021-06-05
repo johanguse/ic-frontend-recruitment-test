@@ -24,10 +24,12 @@
         "prettier"
     ],
     "rules": {
+      "dot-notation": "off",
       "import/no-unresolved": "error",
       "no-use-before-define": "off",
       "import/prefer-default-export": "off",
       "react/prop-types": "off",
+      "react/destructuring-assignment": "off",
       "@typescript-eslint/no-use-before-define": ["error"],
       "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
       "react-hooks/rules-of-hooks": "error",

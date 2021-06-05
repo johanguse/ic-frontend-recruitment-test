@@ -1,37 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import Countdown from 'react-countdown';
-import { CarType, BidsObject } from 'models/car.interface';
+import { CarType } from 'models/car.interface';
+import findLast from 'lodash/findLast';
 
 interface CardProps {
   car: CarType;
 }
 
 const Card: FC<CardProps> = ({ car }) => {
-  const allCarBid = car.bids;
-
-  function currentBid(allBids: string | any[] | BidsObject | undefined) {
-    if (!Array.isArray(allBids) || !allBids.length) {
-      return (
-        <>
-          <div>R$ 0</div>
-        </>
-      );
-    }
-    return (
-      <>
-        <div>
-          {allBids[allBids.length - 1].amount.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          })}
-        </div>
-      </>
-    );
-  }
+  const lastBid = findLast(car.bids) as string | any | undefined;
+  const [initialBid, setBid] = useState(lastBid?.amount);
+  const [disable, setDisable] = useState(false);
 
   function handleClickOffer(e: { preventDefault: () => void }) {
     e.preventDefault();
-    console.log('The link was clicked.');
+
+    setBid((prevCount: number) => prevCount + 250);
+  }
+
+  function handleCountdownEnd() {
+    setDisable(false);
+    console.log('handle count');
   }
 
   const Completionist = () => <span>Leilão Encerrado</span>;
@@ -63,11 +52,28 @@ const Card: FC<CardProps> = ({ car }) => {
           date={Date.now() + car.remainingTime}
           zeroPadTime={2}
           renderer={rendererRemainingTime}
+          onComplete={handleCountdownEnd}
         />
 
-        <div>{currentBid(allCarBid)}</div>
         <div>
-          <button type="button" onClick={handleClickOffer}>
+          {initialBid ? (
+            <p>
+              {initialBid.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              })}
+            </p>
+          ) : (
+            <p>R$ 0</p>
+          )}
+        </div>
+        <div>
+          <button
+            disabled={disable}
+            type="button"
+            className="btn-makeOffer"
+            onClick={handleClickOffer}
+          >
             Focus the input
           </button>
         </div>
