@@ -3,7 +3,7 @@ import Card from 'components/Card';
 import Header from 'components/Header';
 import { CarType } from 'models/car.interface';
 import { CarsApi } from 'api/api';
-import * as _ from 'underscore';
+import sortBy from 'lodash/sortBy';
 
 function App() {
   const [cars, setCars] = useState<CarType[]>([]);
@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     CarsApi.getCars()
       .then((data) => {
-        setCars(_.sortBy(data, 'remainingTime'));
+        setCars(sortBy(data, 'remainingTime'));
       })
       .catch((err) => {
         setIsError(true);
