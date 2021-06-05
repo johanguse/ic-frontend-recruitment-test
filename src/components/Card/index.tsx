@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import Countdown from 'react-countdown';
+import Countdown, { zeroPad } from 'react-countdown';
 import { CarType } from 'models/car.interface';
 import findLast from 'lodash/findLast';
 
@@ -19,7 +19,7 @@ const Card: FC<CardProps> = ({ car }) => {
   }
 
   function handleCountdownEnd() {
-    setDisable(false);
+    setDisable(true);
     console.log('handle count');
   }
 
@@ -38,7 +38,7 @@ const Card: FC<CardProps> = ({ car }) => {
     }
     return (
       <span>
-        {hours}:{minutes}:{seconds}
+        {zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}
       </span>
     );
   };
@@ -46,8 +46,19 @@ const Card: FC<CardProps> = ({ car }) => {
   return (
     <>
       <div className="card">
-        <p>{car.model}</p>
-        <p>{car.make}</p>
+        <div className="image">
+          <figure>
+            <img
+              src={car.imageUrl}
+              alt={`${car.make} - ${car.model}`}
+              width="300px"
+              className="image"
+            />
+            <figcaption>ver detalhes</figcaption>
+          </figure>
+        </div>
+        <div>{car.model}</div>
+        <div>{car.make}</div>
         <Countdown
           date={Date.now() + car.remainingTime}
           zeroPadTime={2}
@@ -74,7 +85,7 @@ const Card: FC<CardProps> = ({ car }) => {
             className="btn-makeOffer"
             onClick={handleClickOffer}
           >
-            Focus the input
+            Fazer Oferta
           </button>
         </div>
       </div>

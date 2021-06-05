@@ -1,4 +1,7 @@
 .card {
-  width: 33.333%;
-  margin-bottom: 50px;
+  background-color: $white;
+  width: 100%;
+  display: inline-block;
+  border-top: 2px solid $grayBorder;
+  border-radius: 5px;
 }
