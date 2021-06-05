@@ -29,6 +29,11 @@ const Card: FC<CardProps> = ({ car }) => {
     );
   }
 
+  function handleClickOffer(e: { preventDefault: () => void }) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
   const Completionist = () => <span>Leilão Encerrado</span>;
 
   const rendererRemainingTime = ({
@@ -61,6 +66,11 @@ const Card: FC<CardProps> = ({ car }) => {
         />
 
         <div>{currentBid(allCarBid)}</div>
+        <div>
+          <button type="button" onClick={handleClickOffer}>
+            Focus the input
+          </button>
+        </div>
       </div>
     </>
   );

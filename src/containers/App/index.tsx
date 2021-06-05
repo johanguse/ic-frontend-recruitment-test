@@ -26,15 +26,13 @@ function App() {
       <Header />
       <div className="app">
         <div className="container car-cards">
-          <div className="row">
-            {isError ? (
-              <>
-                <div className="isError">Erro!!!</div>
-              </>
-            ) : (
-              cars.map((car) => <Card key={car.id} car={car} />)
-            )}
-          </div>
+          {isError ? (
+            <>
+              <div className="isError">Erro!!!</div>
+            </>
+          ) : (
+            cars.map((car) => <Card key={car.id} car={car} />)
+          )}
         </div>
       </div>
     </>
