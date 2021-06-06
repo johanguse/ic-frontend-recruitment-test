@@ -1,5 +1,6 @@
-import React, { FC, useState } from 'react';
-import Countdown, { zeroPad } from 'react-countdown';
+import React, { FC, memo, useCallback, useState } from 'react';
+
+import Timer from 'react-compound-timer';
 import { CarType } from 'models/car.interface';
 import findLast from 'lodash/findLast';
 
@@ -12,36 +13,16 @@ const Card: FC<CardProps> = ({ car }) => {
   const [initialBid, setBid] = useState(lastBid?.amount);
   const [disable, setDisable] = useState(false);
 
-  function handleClickOffer(e: { preventDefault: () => void }) {
-    e.preventDefault();
-
+  const handleClickOffer = useCallback(() => {
     setBid((prevCount: number) => prevCount + 250);
-  }
+  }, []);
 
-  function handleCountdownEnd() {
+  const handleCountdownEnd = useCallback(() => {
     setDisable(true);
     console.log('handle count');
-  }
+  }, []);
 
   const Completionist = () => <span>Leilão Encerrado</span>;
-
-  const rendererRemainingTime = ({
-    hours,
-    minutes,
-    seconds,
-    completed,
-  }: {
-    [key: string]: any;
-  }) => {
-    if (completed) {
-      return <Completionist />;
-    }
-    return (
-      <span>
-        {zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}
-      </span>
-    );
-  };
 
   return (
     <>
@@ -59,13 +40,6 @@ const Card: FC<CardProps> = ({ car }) => {
         </div>
         <div>{car.model}</div>
         <div>{car.make}</div>
-        <Countdown
-          date={Date.now() + car.remainingTime}
-          zeroPadTime={2}
-          renderer={rendererRemainingTime}
-          onComplete={handleCountdownEnd}
-        />
-
         <div>
           {initialBid ? (
             <p>
@@ -79,11 +53,26 @@ const Card: FC<CardProps> = ({ car }) => {
           )}
         </div>
         <div>
+          <Timer
+            initialTime={car.remainingTime}
+            formatValue={(value) => `${value < 10 ? `0${value}` : value}`}
+            direction="backward"
+            checkpoints={[
+              {
+                time: 0,
+                callback: () => handleCountdownEnd(),
+              },
+            ]}
+          >
+            <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />
+          </Timer>
+        </div>
+        <div>
           <button
             disabled={disable}
             type="button"
             className="btn-makeOffer"
-            onClick={handleClickOffer}
+            onClick={() => handleClickOffer()}
           >
             Fazer Oferta
           </button>

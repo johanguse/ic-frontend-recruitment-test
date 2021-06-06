@@ -9570,6 +9570,11 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-compound-timer@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-compound-timer/-/react-compound-timer-1.2.0.tgz#52df2980dce0b63ddaf5718235a51188cb223d1d"
+  integrity sha512-BEFT0Z/+vusfAy4Ci1+G5lr8mI+dk3ddRJuu1DIYA5xGS+5P+M0o4krHmFMKgHuaIY9H3xx0KCvf3ilb1+HFWA==
+
 react-countdown@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/react-countdown/-/react-countdown-2.3.2.tgz#4cc27f28f2dcd47237ee66e4b9f6d2a21fc0b0ad"
@@ -9701,6 +9706,11 @@ react-scripts@4.0.3:
     workbox-webpack-plugin "5.1.4"
   optionalDependencies:
     fsevents "^2.1.3"
+
+react-time-counter@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-time-counter/-/react-time-counter-1.0.2.tgz#393f40a7026fa2b6926b068357ae694ffdc0246c"
+  integrity sha512-cByPAZOah0RkyJaKAl7bU0TmQ4voPNAYJUVAbI6K4Xq4mltTcbC4lduzjCCZdEYPjOl8ZiAgIhkrY+KkaZ+5jQ==
 
 react@^17.0.2:
   version "17.0.2"
