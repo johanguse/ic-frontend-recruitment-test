@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import Timer from 'react-compound-timer';
 import { CarType } from 'models/car.interface';
 import findLast from 'lodash/findLast';
@@ -9,8 +9,14 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ car }) => {
   const lastBid = findLast(car.bids) as string | any | undefined;
-  const [initialBid, setBid] = useState(lastBid?.amount);
   const [isAuctionOver, setAuctionOver] = useState(false);
+  const [initialBid, setBid] = useState(0);
+
+  useEffect(() => {
+    if (lastBid) {
+      setBid(lastBid?.amount);
+    }
+  }, []);
 
   const handleClickOffer = useCallback(() => {
     setBid((prevCount: number) => prevCount + 250);
