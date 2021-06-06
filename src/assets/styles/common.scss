@@ -16,6 +16,7 @@ html {
 .container {
   max-width: $container-max-width;
   margin: 0 auto;
+  padding: 0 15px;
 }
 .grid-cards {
   display: grid;
@@ -23,4 +24,27 @@ html {
   grid-template-rows: 1fr;
   grid-column-gap: 30px;
   grid-row-gap: 30px;
+}
+
+// Buttons
+.btn-makeOffer {
+  cursor: pointer;
+  background-color: $green;
+  width: 100%;
+  padding: 5px 5px;
+  text-transform: uppercase;
+}
+.btn-makeOffer:disabled,
+.btn-makeOffer[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+// Helpers
+.grayscale {
+  @include grayscale_element(100%);
+  transition: all 200ms ease-in-out;
+
 }
