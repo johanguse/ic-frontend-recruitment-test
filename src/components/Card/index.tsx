@@ -25,7 +25,7 @@ const Card: FC<CardProps> = ({ car }) => {
       <div className="card">
         <div className="header-image">
           <img
-            src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2021/202105/20210505/mercedesbenz-glc-250-2.0-cgi-gasolina-highway-4matic-9gtronic-wmimagem09295451379.jpg"
+            src="https://image.webmotors.com.br/_fotos/AnuncioUsados/gigante/2021/202105/20210524/honda-civic-1.5-16v-turbo-gasolina-touring-4p-cvt-wmimagem13373114616.jpg?s=fill&w=420&h=250&q=70"
             alt={`${car.make} - ${car.model}`}
             className={`header-image__image ${
               isAuctionOver ? 'grayscale' : ''
