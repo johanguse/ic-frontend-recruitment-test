@@ -36,31 +36,37 @@ const Card: FC<CardProps> = ({ car }) => {
         <div className="auction-info">
           <div className="auction-info__time-offer">
             <div className="auction-info__time-offer-remaining-time">
-              <Timer
-                initialTime={car.remainingTime}
-                formatValue={(value) => `${value < 10 ? `0${value}` : value}`}
-                direction="backward"
-                checkpoints={[
-                  {
-                    time: 0,
-                    callback: () => handleCountdownEnd(),
-                  },
-                ]}
-              >
-                <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />
-              </Timer>
+              <p className="title">Tempo Restante</p>
+              <div className="timer">
+                <Timer
+                  initialTime={car.remainingTime}
+                  formatValue={(value) => `${value < 10 ? `0${value}` : value}`}
+                  direction="backward"
+                  checkpoints={[
+                    {
+                      time: 0,
+                      callback: () => handleCountdownEnd(),
+                    },
+                  ]}
+                >
+                  <Timer.Hours />:<Timer.Minutes />:<Timer.Seconds />
+                </Timer>
+              </div>
             </div>
-            <div className="auction-info__time-lastbid">
-              {initialBid ? (
-                <p>
-                  {initialBid.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                  })}
-                </p>
-              ) : (
-                <p>R$ 0</p>
-              )}
+            <div className="auction-info__time-offer-lastbid">
+              <p className="title">Última Oferta</p>
+              <div className="bid">
+                {initialBid ? (
+                  <p>
+                    {initialBid.toLocaleString('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    })}
+                  </p>
+                ) : (
+                  <p>R$ 0</p>
+                )}
+              </div>
             </div>
           </div>
           <div className="auction-info__car-title">
@@ -69,24 +75,24 @@ const Card: FC<CardProps> = ({ car }) => {
             </div>
           </div>
           <div className="auction-info__car-infos">
-            <div>{car.year}</div>
-            <div>
+            <div className="year">{car.year}</div>
+            <div className="km">
               {car.km.toLocaleString('pt-BR', {
                 style: 'decimal',
               })}{' '}
               KM
             </div>
           </div>
-          <div className="auction-info__car-footer">
-            <button
-              disabled={isAuctionOver}
-              type="button"
-              className="btn-makeOffer"
-              onClick={() => handleClickOffer()}
-            >
-              {isAuctionOver ? 'Leilão Encerrado' : 'Fazer Oferta'}
-            </button>
-          </div>
+        </div>
+        <div className="footer">
+          <button
+            disabled={isAuctionOver}
+            type="button"
+            className="btn-makeOffer"
+            onClick={() => handleClickOffer()}
+          >
+            {isAuctionOver ? 'Leilão Encerrado' : 'Fazer Oferta'}
+          </button>
         </div>
       </div>
     </>
