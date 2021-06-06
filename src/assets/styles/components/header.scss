@@ -6,21 +6,35 @@
 
   .logo {
     padding: 0;
+
+    &__img {
+      height: 45px;
+    }
   }
 
   .phone {
     align-self: center;
     border-left: 2px $grayBorder solid;
-    margin-left: 50px;
+    margin-left: 60px;
     padding-left: 50px;
 
     &__link {
+      color: $black;
       display: flex;
+      font-size: 16px;
+      font-weight: 600;
       flex-direction: row;
       align-items: center;
+      text-decoration: none;
 
       &-icon {
-        margin-right: 8px;
+        margin-right: 10px;
+        height: 35px;
+        width: auto;
+
+        path {
+          fill: $grayIcon;
+        }
       }
     }
   }
@@ -30,12 +44,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: 0 0 0 auto;
     border: 1px $grayBorder solid;
     height: 100%;
     width: 200px;
     position: relative;
+    padding: 5px;
+
+    &__user-icon {
+      height: 40px;
+      width: auto;
+
+      path {
+        fill: $black;
+      }
+    }
+
+    &__user-name {
+      font-weight: bold;
+    }
 
     &__caret {
       position: absolute;
