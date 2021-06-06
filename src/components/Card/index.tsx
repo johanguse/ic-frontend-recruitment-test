@@ -70,9 +70,9 @@ const Card: FC<CardProps> = ({ car }) => {
             </div>
           </div>
           <div className="auction-info__car-title">
-            <div>
-              {car.make} {car.model} {car.version}
-            </div>
+            <h1 className="auction-info__car-title-text">
+              {car.make} {car.model} {car.version} {car.year}
+            </h1>
           </div>
           <div className="auction-info__car-infos">
             <div className="year">{car.year}</div>

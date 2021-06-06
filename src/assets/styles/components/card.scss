@@ -19,8 +19,8 @@
     }
     &__caption {
       background-color: rgba($black, .4);
-      bottom:0;
-      color:$white;
+      bottom: 0;
+      color: $white;
       display: flex;
       font-weight: 500;
       position: absolute;
@@ -48,6 +48,7 @@
       &-remaining-time, &-lastbid {
         width: 50%;
         .timer, .bid {
+          font-family: 'open_sansbold';
           font-size: 25px;
           font-weight: bold;
           text-transform: uppercase;
@@ -86,20 +87,26 @@
     }
     &__car-title {
       border-bottom: 2px solid $grayBorder;
-      font-size: 17px;
-      font-weight: bold;
-      text-transform: uppercase;
       padding: 15px 0;
       text-align: center;
       flex: 1 1 80px;
+
+      &-text {
+        font-family: 'open_sansbold';
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
     }
     &__car-infos {
       border-bottom: 2px solid $grayBorder;
       display: flex;
       text-align: center;
       justify-content: space-around;
-      padding: 10px 0;
+      padding: 4px 0 6px 0;
+      margin: 3px 0;
       font-weight: bold;
+      font-size: 15px;
 
       .year, .km {
         width: 50%;
