@@ -11,7 +11,7 @@
 - Create test
 - Improve nav in resposive
 
-### Test Specifications
+## Test Specifications
 - Develop the provided solution using ReactJS. create-react-app is the preferred
 method to kickstart your project but is not required.
 - Use vanilla css. No css frameworks are allowed (Usage of flexbox is a plus).
