@@ -21,6 +21,12 @@ current amount + R$250) and reflected in the view.
 - Auctions must be sorted by remaining time (ascendent).
 Assumptions:
 - If an auction doesn't have bids, the initial amount must be 0.
+
+## How to run
+### `yarn start`
+
+Install all dependencies
+
 ### `yarn start`
 
 Runs the app in the development mode.\
