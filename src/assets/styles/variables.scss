@@ -7,8 +7,9 @@ $green: #3eb871;
 $black: #323232;
 $blackTransparent: rgba(0,0,0,0.4);
 
-// GRID
-$container-max-width: 84rem;
-$grid-width: 110rem;
-$gutter-vertical: 4rem;
-$gutter-horizontal: 4rem;
+// Breakpoints
+$desktop: 1400px;
+$laptop: 980px;
+$tablet: 768px;
+$mobile: 480px;
+
