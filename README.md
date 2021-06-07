@@ -11,7 +11,7 @@
 - Create tests
 - Improve nav in resposive
 - Add Storybook
-- Add compomentns to Storybook
+- Add components to Storybook
 
 ## Test Specifications
 - Develop the provided solution using ReactJS. create-react-app is the preferred
