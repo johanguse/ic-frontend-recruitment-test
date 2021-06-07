@@ -25,7 +25,7 @@ Assumptions:
 - If an auction doesn't have bids, the initial amount must be 0.
 
 ## How to run
-### `yarn start`
+### `yarn`
 
 Install all dependencies
 
