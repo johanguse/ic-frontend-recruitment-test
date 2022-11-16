@@ -1,18 +1,16 @@
 import axios, { AxiosResponse } from 'axios';
-import { CarType } from 'models/car.interface';
 
 const instance = axios.create({
-  baseURL:
-    'https://s3-sa-east-1.amazonaws.com/config.instacarro.com/recruitment/auctions.json',
+  baseURL: `${process.env.REACT_APP_API_URL}`,
   timeout: 15000,
 });
 
-const responseBody = (response: AxiosResponse) => response.data;
+const responseBody = (response: AxiosResponse) => response.data.data;
 
 const requests = {
   get: (url: string) => instance.get(url).then(responseBody),
 };
 
 export const CarsApi = {
-  getCars: (): Promise<CarType[]> => requests.get(''),
+  getCars: (): Promise<any> => requests.get(''),
 };
