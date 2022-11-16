@@ -16,7 +16,7 @@ function App() {
       })
       .catch((err) => {
         setIsError(true);
-        console.log('Error: ' + err);
+        console.log(`Error: ${err}`);
       });
     return () => undefined;
   }, []);
