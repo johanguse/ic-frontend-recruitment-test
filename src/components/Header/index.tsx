@@ -4,7 +4,7 @@ import { ReactComponent as IconPhone } from 'assets/images/phone.svg';
 import { ReactComponent as IconUser } from 'assets/images/user.svg';
 import { ReactComponent as IconCaret } from 'assets/images/caret.svg';
 
-const Header = () => {
+function Header() {
   return (
     <header className="container header">
       <div className="logo">
@@ -28,5 +28,5 @@ const Header = () => {
       </div>
     </header>
   );
-};
+}
 export default Header;
